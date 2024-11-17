@@ -23,8 +23,8 @@
 <img src="https://github.com/Spidy20/Fake_News_Detection/blob/master/s2.PNG">
 
 ## Note
-- This project is just for learning purpose, don't think, it can do work in real time, because model was trained on historic & limited data.
-- For real time building of this kind of system, we need updated dataset and we need to build a model in particular interval of time, because news data can be updated in seconds, so our model should be also updated with the data.
+- This project is designed for learning purposes, and I don't believe it is capable of functioning in real-time, as the model was trained on historical and limited data.
+- To build a real-time system of this kind, we would require an updated dataset and a model that is retrained at regular intervals. Since news data can change within seconds, our model must also be continuously updated to reflect the latest information.
 
 
 
