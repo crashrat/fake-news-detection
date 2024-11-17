@@ -19,8 +19,8 @@
 
 ## Screenshots
 
+<img src="Screenshot of Fake News📰 Detection System real.jpg">
 <img src="Screenshot of Fake News📰 Detection System fake.jpg">
-<img src="https://github.com/Spidy20/Fake_News_Detection/blob/master/s2.PNG">
 
 ## Note
 - This project is designed for learning purposes, and I don't believe it is capable of functioning in real-time, as the model was trained on historical and limited data.
