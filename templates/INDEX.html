@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News📰 Detection System</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Arimo&family=Hind:wght@300&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Inline CSS -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arimo', sans-serif;
+      background: url("{{ url_for('static', filename='skyscape.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      animation: backgroundZoom 20s infinite linear;
+    }
+
+    /* Background Zoom Animation */
+    @keyframes backgroundZoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .login {
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      background: rgba(51, 51, 51, 0.85);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .login:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      display: block;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background-image: url("{{ url_for('static', filename='cnn-icon-2048x2048-u9wibi0x.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .login h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      color: #ff4b2b;
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-shadow: 1px 1px 5px rgba(255, 75, 43, 0.6);
+      animation: textGlow 1.5s infinite alternate;
+    }
+
+    .login textarea {
+      width: 100%;
+      background: #444;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      padding: 15px;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .login textarea:focus {
+      border-color: #ff4b2b;
+      box-shadow: 0 0 10px rgba(255, 75, 43, 0.5);
+    }
+
+    .btn {
+      padding: 12px;
+      font-size: 16px;
+      color: #fff;
+      background: linear-gradient(to right, #ff4b2b, #d94228);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, box-shadow 0.3s;
+      outline: none;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #d94228, #ff4b2b);
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255, 75, 43, 0.5);
+    }
+
+    .results h2 {
+      font-family: 'Hind', sans-serif;
+      font-weight: bold;
+      margin-top: 15px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+
+    .results h2.fake {
+      color: #ff4b2b;
+    }
+
+    .results h2.real {
+      color: #28a745;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes textGlow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 75, 43, 0.5);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(255, 75, 43, 1);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .login {
+        width: 90%;
+        padding: 20px;
+      }
+      
+      .login h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <!-- Logo with improved centering and style -->
+    <div class="logo"></div>
+    
+    <h1>Fake News Detector</h1>
+    <form action="{{ url_for('predict') }}" method="POST">
+      <textarea name="message" rows="6" placeholder="Enter news content..." required></textarea>
+      <button type="submit" class="btn">Predict</button>
+      <div class="results">
+        {% if prediction %}
+          {% if prediction == 'FAKE' %}
+            <h2 class="fake">Looks like Spam⚠️ News📰</h2>
+          {% elif prediction == 'REAL' %}
+            <h2 class="real">Looks like Real News📰</h2>
+          {% endif %}
+        {% endif %}
+      </div>
+    </form>
+  </div>
+</body>
+</html>
