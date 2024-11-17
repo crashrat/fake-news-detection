@@ -19,7 +19,7 @@
 
 ## Screenshots
 
-<img src="https://github.com/Spidy20/Fake_News_Detection/blob/master/s1.PNG">
+<img src="Screenshot of Fake News📰 Detection System fake.jpg">
 <img src="https://github.com/Spidy20/Fake_News_Detection/blob/master/s2.PNG">
 
 ## Note
