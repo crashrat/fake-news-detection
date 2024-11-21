@@ -2,7 +2,7 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)                 
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)   
 
-## [Follow us on Instagram for more content about ML](https://www.instagram.com/av7md/profilecard/?igsh=MTZqc3pzMmJrMHkzcw==)(https://www.instagram.com/albaraa.mahgoub?igsh=bHQ2MGxzODIza3V6)
+## [Follow us on Instagram for more content about ML](https://www.instagram.com/av7md/profilecard/?igsh=MTZqc3pzMmJrMHkzcw==)
 
 
 
